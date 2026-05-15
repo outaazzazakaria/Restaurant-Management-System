@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZACKRISTOS—Tables</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="icon" href="../IMG/Logo.png">
+  <link rel="stylesheet" href="../css/Tables.css">
+</head>
+
+<body class="mx-3 my-1">
+
+  <!-- Navbar -->
+
+  <nav class="d-flex justify-content-between align-items-center">
+
+    <div class="d-flex gap-3 align-items-center">
+      <img src="./../IMG/Logo.png" width="65" height="55" alt="Logo">
+      <div>
+        <h3 class="brand-name">ZACKRISTOS</h3>
+        <p class="second-title">Système de Gestion Restaurant</p>
+      </div>
+    </div>
+
+    <ul class="d-flex gap-4 list-unstyled m-0">
+      <li>
+        <a href="./Accueil.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-menu-button-wide"></i> Menu</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Commandes.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-ticket-perforated"></i>Commandes</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Tables.html" class="text-decoration-none">
+          <button class="nav-btn active_btn_Tables"><i class="bi bi-table"></i>Gestion des tables</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Tableau_de_bord.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-calendar2-week"></i>Tableau de bord</button>
+        </a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-warning">
+        <i class="bi bi-bag-plus"></i>
+      </button>
+      <a href="./login.html">
+        <button class="btn btn-danger">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </a>
+    </div>
+
+  </nav>
+
+
+
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3 mt-4">
+    <div>
+      <h1 class="page-title">RÉSERVATION DE TABLES</h1>
+      <p class="page-subtitle">Gérer efficacement les réservations de tables en temps réel</p>
+    </div>
+    <button class="btn-reserve" onclick="openModal()">
+      <i class="bi bi-plus-lg"></i> Réserver une table
+    </button>
+  </div>
+
+  <!-- ═══ STATS BAR ═══ -->
+  <div class="stats-bar">
+    <div class="stat-pill">
+      <div class="stat-dot dot-green"></div>
+      <span class="stat-val" id="stat-available">8</span>
+      <span style="color:var(--muted);font-size:13px">Disponibles</span>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-dot dot-red"></div>
+      <span class="stat-val" id="stat-reserved">0</span>
+      <span style="color:var(--muted);font-size:13px">Réservées</span>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-dot dot-gold"></div>
+      <span class="stat-val" id="stat-total">8</span>
+      <span style="color:var(--muted);font-size:13px">Total</span>
+    </div>
+    <div class="stat-pill" style="margin-left:auto">
+      <i class="bi bi-clock" style="color:var(--muted);font-size:12px"></i>
+      <span style="color:var(--muted);font-size:12px" id="clock"></span>
+    </div>
+  </div>
+
+  <!-- ═══ FILTER BAR ═══ -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">Toutes</button>
+    <button class="filter-btn" data-filter="available">Disponibles</button>
+    <button class="filter-btn" data-filter="reserved">Réservées</button>
+    <div class="search-box">
+      <i class="bi bi-search"></i>
+      <input type="text" id="searchInput" placeholder="Chercher une table...">
+    </div>
+  </div>
+
+  <!-- ═══ TABLES GRID ═══ -->
+  <div class="tables-grid" id="tablesGrid"></div>
+
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+    <p style="color:var(--muted);font-size:14px">Aucune table ne correspond à votre recherche.</p>
+  </div>
+
+  <!-- ═══ RESERVATIONS LIST ═══ -->
+  <div class="section-title">RÉSERVATIONS ACTIVES</div>
+  <div class="reservations-list" id="reservationsList">
+    <div class="no-reservations" id="noReservations">
+      <i class="bi bi-calendar-x" style="font-size:32px;color:var(--muted);display:block;margin-bottom:10px"></i>
+      Aucune réservation active pour le moment.
+    </div>
+  </div>
+
+
+  <!-- ═══ RESERVATION MODAL ═══ -->
+  <div class="modal-overlay" id="reservationModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">RÉSERVER UNE TABLE</div>
+        <button class="modal-close" onclick="closeModal()"><i class="bi bi-x"></i></button>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Table</label>
+        <select class="form-control-dark" id="selectTable">
+          <option value="">— Sélectionnez une table —</option>
+        </select>
+        <div style="font-size:11px;color:var(--muted);margin-top:5px" id="tableStatusHint"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Numéro du Chevalet</label>
+        <input type="number" class="form-control-dark" id="chevelatInput" placeholder="Ex : 42" min="1" max="9999">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Statut</label>
+        <select class="form-control-dark" id="selectStatus">
+          <option value="reserved">Réservé</option>
+          <option value="available">Disponible</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="auto-time-toggle">
+          <span class="toggle-label"><i class="bi bi-clock me-1"></i> Date & heure automatique</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="autoTimeToggle" checked onchange="toggleTimeFields()">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" id="manualTimeGroup" style="display:none">
+        <label class="form-label">Date & heure manuelles</label>
+        <div class="manual-time-row">
+          <input type="date" class="form-control-dark" id="manualDate">
+          <input type="time" class="form-control-dark" id="manualTime">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nom du client (optionnel)</label>
+        <input type="text" class="form-control-dark" id="clientName" placeholder="Ex : M. Dupont">
+      </div>
+
+      <button class="btn-submit-modal" id="submitBtn" onclick="submitReservation()">
+        <i class="bi bi-check-circle"></i> CONFIRMER
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ═══ CONFIRM DELETE MODAL ═══ -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="confirm-box">
+      <div class="confirm-icon"><i class="bi bi-trash3"></i></div>
+      <div class="confirm-title">Supprimer ?</div>
+      <div class="confirm-text" id="confirmText">Voulez-vous vraiment libérer cette table ?</div>
+      <div class="confirm-btns">
+        <button class="confirm-btn confirm-btn-cancel" onclick="closeConfirm()">Annuler</button>
+        <button class="confirm-btn confirm-btn-delete" id="confirmDeleteBtn">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOAST CONTAINER ═══ -->
+  <div class="toast-container" id="toastContainer"></div>
+      <!-- footer -->
+    <footer class="text-white w-100 p-4 mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-warning">ZACKRISTOS</h3>
+                <p>Smart Restaurant Manager pour gérer votre menu, commandes et tables facilement.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-warning">Navigation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="./index.html" class="text-white text-decoration-none">Menu</a></li>
+                    <li><a href="./Orders.html" class="text-white text-decoration-none">Orders</a></li>
+                    <li><a href="./Tables.html" class="text-white text-decoration-none">Tables</a></li>
+                    <li><a href="./Dashboard.html" class="text-white text-decoration-none">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-warning">Contact</h5>
+                <p><i class="bi bi-envelope-fill"></i> zackristos@gmail.com</p>
+                <p><i class="bi bi-telephone-fill"></i> +212 600000000</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Temara, Maroc</p>
+            </div>
+        </div>
+        <hr class="border-light">
+        <div class="text-center">
+            <p class="m-0">© 2026 ZACKRISTOS - Tous droits réservés</p>
+        </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ══════════════════════════════════════════
+    //  STATE
+    // ══════════════════════════════════════════
+    const TOTAL_TABLES = 8;
+
+    let tables = Array.from({ length: TOTAL_TABLES }, (_, i) => ({
+      id: i + 1,
+      name: `Table ${i + 1}`,
+      status: 'available',
+      chevalet: null,
+      client: null,
+      reservedAt: null
+    }));
+
+    let reservations = []; // {tableId, chevalet, client, reservedAt}
+    let editingTableId = null;
+    let deleteTargetId = null;
+    let currentFilter = 'all';
+
+    // ══════════════════════════════════════════
+    //  CLOCK
+    // ══════════════════════════════════════════
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent =
+        now.toLocaleDateString('fr-FR', { weekday: 'short', day: '2-digit', month: 'short' }) + ' · ' +
+        now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+
+    // ══════════════════════════════════════════
+    //  RENDER
+    // ══════════════════════════════════════════
+    function render() {
+      updateStats();
+      renderGrid();
+      renderReservations();
+      populateSelectTable();
+    }
+
+    function updateStats() {
+      const reserved = tables.filter(t => t.status === 'reserved').length;
+      const available = TOTAL_TABLES - reserved;
+      document.getElementById('stat-available').textContent = available;
+      document.getElementById('stat-reserved').textContent = reserved;
+      document.getElementById('stat-total').textContent = TOTAL_TABLES;
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('tablesGrid');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      grid.innerHTML = '';
+
+      const filtered = tables.filter(t => {
+        const matchFilter = currentFilter === 'all' || t.status === currentFilter;
+        const matchSearch = t.name.toLowerCase().includes(search) ||
+          (t.chevalet && String(t.chevalet).includes(search)) ||
+          (t.client && t.client.toLowerCase().includes(search));
+        return matchFilter && matchSearch;
+      });
+
+      const empty = document.getElementById('emptyState');
+      if (filtered.length === 0) {
+        empty.classList.add('show');
+      } else {
+        empty.classList.remove('show');
+        filtered.forEach((t, idx) => {
+          const card = buildTableCard(t, idx);
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    function buildTableCard(t, idx) {
+      const div = document.createElement('div');
+      div.className = `table-card ${t.status}`;
+      div.style.animationDelay = `${idx * 0.045}s`;
+
+      const icon = t.status === 'reserved' ? '🔴' : '🟢';
+      const statusBadge = t.status === 'reserved'
+        ? `<span class="status-badge badge-reserved"><i class="bi bi-lock-fill"></i> Réservée</span>`
+        : `<span class="status-badge badge-available"><i class="bi bi-check-circle-fill"></i> Disponible</span>`;
+
+      const timeStr = t.reservedAt
+        ? `<div class="table-time"><i class="bi bi-clock"></i> ${formatTime(t.reservedAt)}</div>`
+        : '';
+
+      const clientStr = t.client
+        ? `<div style="font-size:12px;color:var(--gold)">${t.client}</div>`
+        : '';
+
+      div.innerHTML = `
+    <div class="table-number-badge">${t.id}</div>
+    <div class="table-icon-wrap">${t.status === 'reserved' ? '🍽️' : '🪑'}</div>
+    <div class="table-name">${t.name}</div>
+    <div class="chevalet-info">Chevalet : <span>${t.chevalet ?? '—'}</span></div>
+    ${clientStr}
+    ${statusBadge}
+    ${timeStr}
+    <div class="card-actions">
+      <button class="card-action-btn btn-edit-card" onclick="editTable(${t.id})"><i class="bi bi-pencil"></i> Modifier</button>
+      ${t.status === 'reserved' ? `<button class="card-action-btn btn-delete-card" onclick="confirmDelete(${t.id})"><i class="bi bi-trash"></i></button>` : ''}
+    </div>
+  `;
+      div.addEventListener('click', e => {
+        if (!e.target.closest('button')) editTable(t.id);
+      });
+      return div;
+    }
+
+    function renderReservations() {
+      const list = document.getElementById('reservationsList');
+      const noRes = document.getElementById('noReservations');
+      list.innerHTML = '';
+
+      const reserved = tables.filter(t => t.status === 'reserved');
+
+      if (reserved.length === 0) {
+        list.appendChild(noRes);
+        noRes.style.display = '';
+        return;
+      }
+
+      reserved.forEach((t, idx) => {
+        const row = document.createElement('div');
+        row.className = 'reservation-row';
+        row.style.animationDelay = `${idx * 0.05}s`;
+        row.innerHTML = `
+      <div class="res-table-icon">🍽️</div>
+      <div class="res-info">
+        <div class="res-name">${t.name} ${t.client ? '— ' + t.client : ''}</div>
+        <div class="res-sub">
+          Chevalet : ${t.chevalet ?? '—'}
+          ${t.reservedAt ? ' · ' + formatTime(t.reservedAt) : ''}
+        </div>
+      </div>
+      <span class="status-badge badge-reserved" style="flex-shrink:0"><i class="bi bi-lock-fill"></i> Réservée</span>
+      <div class="res-actions">
+        <button class="res-btn res-btn-edit" onclick="editTable(${t.id})"><i class="bi bi-pencil"></i> Éditer</button>
+        <button class="res-btn res-btn-del"  onclick="confirmDelete(${t.id})"><i class="bi bi-trash"></i></button>
+      </div>
+    `;
+        list.appendChild(row);
+      });
+    }
+
+    function populateSelectTable() {
+      const sel = document.getElementById('selectTable');
+      const current = sel.value;
+      sel.innerHTML = '<option value="">— Sélectionnez une table —</option>';
+      tables.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.id;
+        opt.textContent = `${t.name} (${t.status === 'reserved' ? 'Réservée' : 'Disponible'})`;
+        if (t.id == current) opt.selected = true;
+        sel.appendChild(opt);
+      });
+    }
+
+    // ══════════════════════════════════════════
+    //  MODAL — OPEN / CLOSE
+    // ══════════════════════════════════════════
+    function openModal(prefillId = null) {
+      editingTableId = null;
+      document.getElementById('modalTitle').textContent = 'RÉSERVER UNE TABLE';
+      document.getElementById('submitBtn').innerHTML = '<i class="bi bi-check-circle"></i> CONFIRMER';
+
+      // reset form
+      document.getElementById('selectTable').value = prefillId ?? '';
+      document.getElementById('chevelatInput').value = '';
+      document.getElementById('selectStatus').value = 'reserved';
+      document.getElementById('clientName').value = '';
+      document.getElementById('autoTimeToggle').checked = true;
+      document.getElementById('manualTimeGroup').style.display = 'none';
+
+      if (prefillId) {
+        onTableSelect(prefillId);
+      } else {
+        document.getElementById('tableStatusHint').textContent = '';
+      }
+
+      document.getElementById('reservationModal').classList.add('open');
+    }
+
+    function editTable(id) {
+      const t = tables.find(x => x.id === id);
+      if (!t) return;
+
+      editingTableId = id;
+      document.getElementById('modalTitle').textContent = `MODIFIER — ${t.name.toUpperCase()}`;
+      document.getElementById('submitBtn').innerHTML = '<i class="bi bi-pencil"></i> METTRE À JOUR';
+
+      populateSelectTable();
+      document.getElementById('selectTable').value = t.id;
+      document.getElementById('chevelatInput').value = t.chevalet ?? '';
+      document.getElementById('selectStatus').value = t.status;
+      document.getElementById('clientName').value = t.client ?? '';
+      document.getElementById('autoTimeToggle').checked = true;
+      document.getElementById('manualTimeGroup').style.display = 'none';
+      document.getElementById('tableStatusHint').textContent = '';
+
+      document.getElementById('reservationModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('reservationModal').classList.remove('open');
+      editingTableId = null;
+    }
+
+    // ══════════════════════════════════════════
+    //  MODAL — SUBMIT
+    // ══════════════════════════════════════════
+    function submitReservation() {
+      const tableId = parseInt(document.getElementById('selectTable').value);
+      const chevalet = document.getElementById('chevelatInput').value.trim();
+      const status = document.getElementById('selectStatus').value;
+      const client = document.getElementById('clientName').value.trim() || null;
+      const autoTime = document.getElementById('autoTimeToggle').checked;
+
+      if (!tableId) return showToast('Veuillez sélectionner une table.', 'error');
+      if (!chevalet) return showToast('Veuillez entrer le numéro du chevalet.', 'error');
+
+      let reservedAt;
+      if (autoTime) {
+        reservedAt = new Date();
+      } else {
+        const d = document.getElementById('manualDate').value;
+        const ti = document.getElementById('manualTime').value;
+        if (!d || !ti) return showToast('Veuillez entrer la date et l\'heure.', 'error');
+        reservedAt = new Date(`${d}T${ti}`);
+      }
+
+      const t = tables.find(x => x.id === tableId);
+      if (!t) return;
+
+      t.status = status;
+      t.chevalet = parseInt(chevalet);
+      t.client = client;
+      t.reservedAt = status === 'reserved' ? reservedAt : null;
+
+      closeModal();
+      render();
+
+      const action = editingTableId ? 'mise à jour' : 'réservée';
+      showToast(`${t.name} ${action} avec succès ! ✓`, 'success');
+    }
+
+    // ══════════════════════════════════════════
+    //  CONFIRM DELETE
+    // ══════════════════════════════════════════
+    function confirmDelete(id) {
+      deleteTargetId = id;
+      const t = tables.find(x => x.id === id);
+      document.getElementById('confirmText').textContent =
+        `Voulez-vous libérer ${t?.name} et supprimer sa réservation ?`;
+      document.getElementById('confirmModal').classList.add('open');
+      document.getElementById('confirmDeleteBtn').onclick = () => deleteReservation(id);
+    }
+
+    function closeConfirm() {
+      document.getElementById('confirmModal').classList.remove('open');
+      deleteTargetId = null;
+    }
+
+    function deleteReservation(id) {
+      const t = tables.find(x => x.id === id);
+      if (!t) return;
+      t.status = 'available';
+      t.chevalet = null;
+      t.client = null;
+      t.reservedAt = null;
+      closeConfirm();
+      render();
+      showToast(`${t.name} libérée avec succès.`, 'success');
+    }
+
+    // ══════════════════════════════════════════
+    //  HELPERS
+    // ══════════════════════════════════════════
+    function toggleTimeFields() {
+      const auto = document.getElementById('autoTimeToggle').checked;
+      document.getElementById('manualTimeGroup').style.display = auto ? 'none' : 'block';
+    }
+
+    function formatTime(date) {
+      if (!date) return '';
+      const d = new Date(date);
+      return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }) +
+        ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function onTableSelect(val) {
+      const hint = document.getElementById('tableStatusHint');
+      if (!val) { hint.textContent = ''; return; }
+      const t = tables.find(x => x.id == val);
+      if (!t) return;
+      hint.textContent = t.status === 'reserved'
+        ? `⚠️ Cette table est déjà réservée (Chevalet : ${t.chevalet ?? '—'})`
+        : '✅ Cette table est disponible.';
+      hint.style.color = t.status === 'reserved' ? 'var(--danger)' : 'var(--success)';
+    }
+
+    document.getElementById('selectTable').addEventListener('change', e => onTableSelect(e.target.value));
+
+    // ══════════════════════════════════════════
+    //  TOAST
+    // ══════════════════════════════════════════
+    function showToast(msg, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast-msg ${type}`;
+      const icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill';
+      const color = type === 'success' ? 'var(--success)' : 'var(--danger)';
+      toast.innerHTML = `<i class="bi ${icon}" style="color:${color};font-size:18px"></i><span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3800);
+    }
+
+    // ══════════════════════════════════════════
+    //  FILTER + SEARCH
+    // ══════════════════════════════════════════
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderGrid();
+      });
+    });
+
+    document.getElementById('searchInput').addEventListener('input', renderGrid);
+
+    // Close modals on overlay click
+    document.getElementById('reservationModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('reservationModal')) closeModal();
+    });
+    document.getElementById('confirmModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('confirmModal')) closeConfirm();
+    });
+
+    // Keyboard ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeModal(); closeConfirm(); }
+    });
+
+    // ══════════════════════════════════════════
+    //  INIT
+    // ══════════════════════════════════════════
+    render();
+
+
+
+  </script>
+</body>
+
+</html>

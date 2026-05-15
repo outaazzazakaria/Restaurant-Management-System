@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZACKRISTOS-Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="icon" href="./../IMG/Logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/Accueil.css">
+</head>
+
+<body class="mx-3 my-1">
+    <header>
+        
+  <!-- Navbar -->
+
+  <nav class="d-flex justify-content-between align-items-center">
+
+    <div class="d-flex gap-3 align-items-center">
+      <img src="./../IMG/Logo.png" width="65" height="55" alt="Logo">
+      <div>
+        <h3 class="brand-name">ZACKRISTOS</h3>
+        <p class="second-title">Système de Gestion Restaurant</p>
+      </div>
+    </div>
+
+    <ul class="d-flex gap-4 list-unstyled m-0">
+      <li>
+        <a href="./Accueil.html" class="text-decoration-none">
+          <button class="nav-btn active_btn_Menu"><i class="bi bi-menu-button-wide"></i> Menu</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Commandes.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-ticket-perforated"></i>Commandes</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Tables.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-table"></i>Gestion des tables</button>
+        </a>
+      </li>
+      <li>
+        <a href="./Tableau_de_bord.html" class="text-decoration-none">
+          <button class="nav-btn"><i class="bi bi-calendar2-week"></i>Tableau de bord</button>
+        </a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-warning">
+        <i class="bi bi-bag-plus"></i>
+      </button>
+      <a href="./login.html">
+        <button class="btn btn-danger">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </a>
+    </div>
+
+  </nav>
+
+
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <div>
+                <h1 class="title-Notr_Mnu">Notre Menu</h1>
+                <p>Gérez et découvrez votre offre culinaire</p>
+            </div>
+            <button class="btn btn-Ajouter_au_Menu d-flex justify-content-center align-items-center gap-2"
+                onclick="Ajouter_au_Menu()">
+                <span class="fs-5">+</span>
+                Ajouter au Menu
+            </button>
+        </div>
+
+        <div class="d-flex align-items-center gap-4 mt-3 w-100 flex-wrap">
+            <div class="d-flex justify-content-center align-items-center searchINPT gap-2">
+                <i class="bi bi-search h3 mb-0"></i>
+                <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un plat..."
+                    onkeyup="rechercherPlat()">
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="btn p-3 btn-filter active-filter" data-cat="all">All</button>
+                <button class="btn p-3 btn-filter" data-cat="Burger">Burger</button>
+                <button class="btn p-3 btn-filter" data-cat="Boisson">Boissons</button>
+                <button class="btn p-3 btn-filter" data-cat="Dessert">Desserts</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SLIDER -->
+        <div class="overflow-hidden my-5 w-100 ov-hd">
+            <div class="slide-track">
+                <!-- GROUPE 1 -->
+                <div class="item">
+                    <img src="../IMG/chicken_royale.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Chicken Royale</p>
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="../IMG/img7.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Classic Burger</p>
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="../IMG/img3.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Big Burger</p>
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="../IMG/img4.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Chicken Crispy</p>
+                    </span>
+                </div>
+                <div class="item">
+                    <img src="../IMG/img5.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">BBQ Burger</p>
+                    </span>
+                </div>
+                <!-- GROUPE 2 DUPLIQUÉ -->
+                <div aria-hidden="true" class="item">
+                    <img src="../IMG/chicken_royale.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Chicken Royale</p>
+                    </span>
+                </div>
+                <div aria-hidden="true" class="item">
+                    <img src="../IMG/img7.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Classic Burger</p>
+                    </span>
+                </div>
+                <div aria-hidden="true" class="item">
+                    <img src="../IMG/img3.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Big Burger</p>
+                    </span>
+                </div>
+                <div aria-hidden="true" class="item">
+                    <img src="../IMG/img4.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">Chicken Crispy</p>
+                    </span>
+                </div>
+                <div aria-hidden="true" class="item">
+                    <img src="../IMG/img5.png" height="150" width="150" class="img-fluid" alt="Burger">
+                    <span class="bg-p_berger d-flex justify-content-center">
+                        <p class="mt-3 text-black">BBQ Burger</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="w-100">
+            <!-- BURGER -->
+            <div id="section-burger">
+                <h2>Burgers</h2>
+                <div class="row g-4 w-100" id="burger"></div>
+                <button class="btn d-flex justify-content-center w-100" onclick="voirPlus('Burger')">
+                    <i class="bi bi-arrow-down-circle text-danger fs-3 m-0"></i>
+                </button>
+            </div>
+
+            <!-- BOISSON -->
+            <div id="section-boisson">
+                <h2>Boissons</h2>
+                <div class="row g-4" id="boisson"></div>
+                <button class="btn btn-warning mt-3" onclick="voirPlus('Boisson')">Voir plus</button>
+            </div>
+
+            <!-- DESSERT -->
+            <div id="section-dessert">
+                <h2>Desserts</h2>
+                <div class="row g-4" id="dessert"></div>
+                <button class="btn btn-warning mt-3" onclick="voirPlus('Dessert')">Voir plus</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="text-white w-100 p-4 mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-warning">ZACKRISTOS</h3>
+                <p>Smart Restaurant Manager pour gérer votre menu, commandes et tables facilement.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-warning">Navigation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="./Accueil.html" class="text-white text-decoration-none">Menu</a></li>
+                    <li><a href="./Orders.html" class="text-white text-decoration-none">Orders</a></li>
+                    <li><a href="./Tables.html" class="text-white text-decoration-none">Tables</a></li>
+                    <li><a href="./Dashboard.html" class="text-white text-decoration-none">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-warning">Contact</h5>
+                <p><i class="bi bi-envelope-fill"></i> zackristos@gmail.com</p>
+                <p><i class="bi bi-telephone-fill"></i> +212 600000000</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Temara, Maroc</p>
+            </div>
+        </div>
+        <hr class="border-light">
+        <div class="text-center">
+            <p class="m-0">© 2026 ZACKRISTOS - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- MODAL AJOUTER / MODIFIER -->
+    <div id="Modal_ajouter_au_menu" class="modal-box d-flex justify-content-center align-items-center d-none">
+        <div class="modal-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-dark fw-bold" id="modal-titre">Ajouter au Menu</h2>
+                <button onclick="closeModal()" class="close_btn" type="button">X</button>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                <label for="category" class="mb-2 fw-bold">Choisissez le type de plat : *</label>
+                <select class="mb-4" name="category" id="category">
+                    <option value="">Sélectionnez une catégorie</option>
+                    <option value="Burger">Plat</option>
+                    <option value="Boisson">Boisson</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-2">
+                        <label for="image_sand" class="fw-bold">Image du plat : *</label>
+                        <label for="image_sand"
+                            class="btn btn-outline-secondary w-100 d-flex justify-content-center align-items-center gap-2">
+                            <i class="bi bi-upload"></i> Upload Image
+                        </label>
+                        <input type="file" id="image_sand" accept="image/*" hidden>
+                    </div>
+
+                    <div class="w-100 d-flex gap-3 flex-wrap">
+                        <div class="d-flex flex-column gap-2 flex-fill">
+                            <label for="nom_du_plat" class="fw-bold">Nom du plat : *</label>
+                            <input type="text" class="Nom_du_plat" placeholder="Nom du plat" id="nom_du_plat">
+                        </div>
+                        <div class="d-flex flex-column gap-2 flex-fill">
+                            <label for="prix" class="fw-bold">Prix : *</label>
+                            <input type="number" class="Prix" placeholder="Prix" id="prix">
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-1">
+                        <label for="description" class="fw-bold">Description du plat : *</label>
+                        <textarea id="description" placeholder="Description du plat"></textarea>
+                    </div>
+
+                    <button type="button"
+                        class="btn btn2-Ajouter_au_Menu d-flex justify-content-center align-items-center gap-2 w-100"
+                        id="btn-valider-modal"
+                        onclick="btn2_Ajouter_au_Menu()">
+                        <i class="bi bi-plus-circle"></i> Ajouter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Error -->
+    <div id="errorModal" class="modal">
+        <div class="Mdml-cont bg-warning">
+            <i class="bi bi-info-circle fs-2"></i>
+            <h5 class="w-100 mt-2" id="info_error">Les informations sont incorrectes, Veuillez réessayer.</h5>
+            <span class="btnFermer d-flex justify-content-center align-items-center btn btn-outline-light"
+                onclick="closeModalError()">OK</span>
+        </div>
+    </div>
+
+    <!-- Modal Succès -->
+    <div id="successModal" class="modal">
+        <div class="Mdml-cont bg-success">
+            <i class="bi bi-check-circle fs-2 text-white"></i>
+            <h5 class="w-100 mt-2 text-white" id="info_succes">Opération réussie !</h5>
+            <span class="btnFermer d-flex justify-content-center align-items-center btn btn-outline-light"
+                onclick="closeModalSucces()">OK</span>
+        </div>
+    </div>
+
+    <!-- Modal Publicité -->
+    <div id="modalPub" class="modal-pub" style="display:none;">
+        <div class="pub-content">
+            <button class="pub-close" onclick="closePub()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <img src="../IMG/Whopper.jpg" alt="Promotion ZACKRISTOS" class="pub-img">
+            <div class="pub-text">
+                <h3>Offre Spéciale !</h3>
+                <p>Profitez de <strong>-20%</strong> sur tous nos Burgers aujourd'hui seulement !</p>
+                <span class="pub-badge">Offre limitée</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

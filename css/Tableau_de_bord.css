@@ -1,0 +1,202 @@
+body {
+    background-image: linear-gradient(to right, rgb(255, 196, 0), rgb(255, 186, 11));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+    background-color: #000000e8;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 0;
+}
+
+.second-title {
+    font-size: 14px;
+    color: #e7e6de;
+    margin: 0;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid rgb(228, 163, 13);
+    color: rgb(228, 163, 13) !important;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.nav-btn:hover {
+    background: rgb(228, 163, 13);
+    color: #000 !important;
+}
+
+.nav-btn.active_btn_Tableau_de_bord {
+    background: rgb(228, 163, 13);
+    color: #000 !important;
+}
+
+.btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-icon-gold {
+    background: var(--gold);
+    color: #000;
+}
+
+.btn-icon-gold:hover {
+    background: var(--gold-dark);
+}
+
+
+/* ======================== */
+
+
+/* NAVBAR */
+
+nav {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.logo {
+    color: gold;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* CARDS */
+
+.card-box {
+    background: #1f1f1f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-box:hover {
+    transform: scale(1.03);
+}
+
+.card-box i {
+    font-size: 40px;
+    color: gold;
+}
+
+.card-box h2 {
+    color: gold;
+    margin-top: 10px;
+}
+
+
+.chart-box {
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+/* TABLE */
+
+table {
+    width: 100%;
+    color: white;
+}
+
+th {
+    color: gold;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+
+/* ORDER */
+
+.order {
+    background: #2c2c2c;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #111;
+    border-radius: 10px 10px 0 0;
+}
+
+footer a:hover {
+    color: #ffc107 !important;
+    transition: 0.3s;
+}
+
+
+/* CTG BR */
+
+.bar {
+    background: gray;
+    height: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.fill {
+    background: gold;
+    height: 100%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+/* ALERT */
+
+.alert-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: green;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+}

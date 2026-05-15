@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZACKRISTOS-Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="icon" href="../IMG/Logo.png">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body class="mx-3 my-1">
+
+  <div class="title-bg">
+    <h1 class="berger">BURGER</h1>
+    <h1 class="sandwich">SANDWICH</h1>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mt-5 gap-5 ZKR w-100">
+
+    <div class="d-flex justify-content-center align-items-center  gap-2 w-75">
+      <img src="../IMG/bg_logo.png" class="logo" alt="logo">
+    </div>
+
+    <div class="cardLOGIN d-flex justify-content-center align-items-center flex-column mt-5  gap-4 w-100">
+      <div class="d-flex justify-content-start w-100 align-items-center gap-2">
+        <img src="../IMG/Logo_bg_black.png" alt="logo" class="" style="width: 81px; height: 80px;">
+        <div class="mb-4">
+          <h5 class="m-0">ZACKRISTO</h5>
+          <p class="m-0">Système de Gestion Restaurant</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center flex-column">
+        <h1 class="fw-bold m-0 text-center Title_login">Login</h1>
+        <h5 class="m-3">Bienvenue! sur ZACKRISTOS</h5>
+      </div>
+      <div class="d-flex justify-content-between align-items-center gap-3 w-100">
+        <span><i class="bi bi-person-fill fs-4 text-dark"></i></span>
+        <input id="inputTEXT" type="text" placeholder="Username" class="form-control form-control-lg" required>
+        <span><i class="bi bi-lock-fill fs-4 text-dark"></i></span>
+        <input id="inputPSWD" type="password" placeholder="Password" class="form-control form-control-lg" required>
+      </div>
+      <button type="submit" class="btn-login" onclick="login()">Login Now →</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="errorModal" class="modal">
+    <div class="Mdml-cont">
+      <i class="bi bi-exclamation-triangle fs-2"></i>
+      <h5 class="w-100 mt-2">Les informations sont incorrectes, Veuillez réessayer.</h5>
+      <span class="btnFermer d-flex justify-content-center align-items-center btn btn-outline-light"
+        onclick="errorModal()">X</span>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

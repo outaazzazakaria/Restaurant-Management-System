@@ -1,0 +1,160 @@
+body {
+    background-image: linear-gradient(to right, rgb(255, 196, 0), rgb(255, 186, 11));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+}
+
+.title-bg {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.title-bg h1 {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    margin: 0;
+    font-family: Impact, sans-serif;
+    opacity: 1;
+}
+
+/* BURGER */
+.berger {
+    position: absolute;
+    left: 70px;
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.749);
+}
+
+/* SANDWICH */
+.sandwich {
+    position: absolute;
+    right: 120px;
+    top: 0;
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.749);
+}
+
+/* Main Container */
+.ZKR {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo */
+.logo {
+    width: 400px;
+    margin-top: 60px;
+    margin-left: -20px;
+    position: relative;
+    top: 70px;
+}
+
+/* Card */
+.cardLOGIN {
+    background: transparent;
+    backdrop-filter: blur(30px);
+    border: #FFBA00 1px solid;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.721);
+    width: 80%;
+    position: relative;
+    top: 70px;
+}
+.Title_login {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 4px;
+    color: black;
+}
+/* Inputs */
+.form-control {
+    border-radius: 12px;
+}
+
+/* Button */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: #1a0f0a;
+    color: #FFBA00;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: transparent 2px solid;
+
+}
+
+.btn-login:hover {
+    background: #FFBA00;
+    color: #1a0f0a;
+    border: #1a0f0a 2px solid;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(255, 186, 0, 0.35);
+}
+
+/* Modal */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 30, 30, 0.4);
+}
+
+.Mdml-cont {
+    background: rgb(225, 41, 41);
+    border: #FFBA00 2px solid;
+    width: 50%;
+    /* height: 220px; */
+    padding: 17px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 15% auto;
+    animation: fadeIn 0.3s ease;
+    position: absolute;
+    top: -185px;
+    left: 50%;
+    transform: translateX(-50%) ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.btnFermer {
+    float: right;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
