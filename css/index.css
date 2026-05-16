@@ -109,7 +109,7 @@ body {
 
 /* Modal */
 .modal {
-    display: block;
+    display:none;
     position: fixed;
     z-index: 999;
     left: 0;
@@ -123,7 +123,6 @@ body {
     background: rgb(225, 41, 41);
     border: #FFBA00 2px solid;
     width: 50%;
-    /* height: 220px; */
     padding: 17px;
     border-radius: 10px;
     text-align: center;
