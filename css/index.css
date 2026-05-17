@@ -5,6 +5,7 @@ body {
     padding: 0;
     color: white;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .title-bg {
@@ -27,6 +28,7 @@ body {
 }
 
 /* BURGER */
+
 .berger {
     position: absolute;
     left: 70px;
@@ -35,6 +37,7 @@ body {
 }
 
 /* SANDWICH */
+
 .sandwich {
     position: absolute;
     right: 120px;
@@ -144,6 +147,19 @@ body {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a2a1a;
+    border-radius: 10px;
 }
 
 @keyframes fadeIn {

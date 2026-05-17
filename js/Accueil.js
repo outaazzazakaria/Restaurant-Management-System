@@ -153,7 +153,10 @@ document.querySelectorAll(".btn-filter").forEach(btn => {
 function voirPlus(categorie) {
     counts[categorie] += 4;
     afficherCategorie(categorie);
+
+
 }
+
 
 
 // ------------------ AJOUTER AU MENU ------------------

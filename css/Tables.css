@@ -32,7 +32,6 @@
       margin: 12px;
     }
 
-    /* ── navbar الأصلي ── */
 
 
 
@@ -163,7 +162,7 @@
       color: #ffffff;
     }
 
-    /* ───────── STATS BAR ───────── */
+    /* ────────────────── */
     .stats-bar {
       display: flex;
       gap: 12px;
@@ -209,7 +208,7 @@
       color: var(--gold);
     }
 
-    /* ───────── FILTER BAR ───────── */
+    /* ───────── FILTER ───────── */
     .filter-bar {
       padding: 16px 12px 0;
       display: flex;
@@ -265,7 +264,7 @@
       color: rgb(228, 163, 13);
     }
 
-    /* ───────── TABLES GRID ───────── */
+    /* ───────── TABLES ───────── */
     .tables-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -448,7 +447,7 @@
       margin-bottom: 16px;
     }
 
-    /* ───────── RESERVATIONS LIST ───────── */
+    /* ───────── RESERVATIONS ───────── */
     .section-title {
       font-size: 22px;
       font-weight: 700;
@@ -896,18 +895,19 @@
       color: #000;
     }
 
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
 
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
+::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 3px;
-    }
+::-webkit-scrollbar-thumb {
+    background: #3a2a1a;
+    border-radius: 10px;
+}
 
     @media (max-width: 640px) {
       .tables-grid {

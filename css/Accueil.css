@@ -237,7 +237,38 @@ nav {
         transform: translateX(-850px);
     }
 }
+/* ---------====| les titers des cartes */
+    .title_des_cartes_burger , .title_des_cartes_Boissons , .title_des_cartes_Desserts{
+      font-size: 22px;
+      font-weight: 700;
+      font-family: Impact, sans-serif;
+      letter-spacing: 4px;
+      padding: 0 12px;
+      margin-top: 8px;
+      color: #1a0f0a;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
+    .title_des_cartes_burger::after, .title_des_cartes_Boissons::after , .title_des_cartes_Desserts::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* btn viore plus */
+       .btnPlus{
+        background-color: transparent;
+        border: none;
+
+    } 
+    .btnPlus:active{
+        border: none !important;
+    }
+
+/* ----------=======| les cartes |=====---------- */
 .card {
     background: #1a0f0a;
     border-radius: 10px;
@@ -562,6 +593,20 @@ footer a:hover {
     border-radius: 20px;
     letter-spacing: 1px;
 }
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a2a1a;
+    border-radius: 10px;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

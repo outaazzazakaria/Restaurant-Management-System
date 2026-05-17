@@ -8,6 +8,7 @@ body {
 }
 
 /* Navbar */
+
 nav {
     background-color: #000000e8;
     padding: 10px 20px;
@@ -49,7 +50,7 @@ nav {
     color: #000 !important;
 }
 
-.nav-btn.active_btn_Tableau_de_bord {
+.nav-btn.active_btn_Menu {
     background: rgb(228, 163, 13);
     color: #000 !important;
 }
@@ -76,6 +77,16 @@ nav {
     background: var(--gold-dark);
 }
 
+.btn-icon-danger {
+    background: transparent;
+    border: 1px solid rgba(255, 71, 87, 0.6);
+    color: var(--danger);
+}
+
+.btn-icon-danger:hover {
+    background: rgba(255, 71, 87, 0.15);
+}
+
 
 /* ======================== */
 
@@ -84,8 +95,8 @@ nav {
 
 nav {
     background: #111;
-    padding: 15px;
-    border-radius: 10px;
+    /* padding: 15px; */
+    /* border-radius: 10px; */
 }
 
 .logo {
@@ -199,4 +210,17 @@ footer a:hover {
     padding: 15px;
     border-radius: 10px;
     display: none;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a2a1a;
+    border-radius: 10px;
 }

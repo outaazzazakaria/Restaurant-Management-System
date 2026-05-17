@@ -13,11 +13,7 @@ function login() {
 
     for (let i = 0; i < USERS.length; i++) {
 
-        if (
-            USERS[i].username == nom &&
-            USERS[i].password == pswd
-        ) {
-
+        if (USERS[i].username == nom && USERS[i].password == pswd) {
             X = true;
             break;
         }
