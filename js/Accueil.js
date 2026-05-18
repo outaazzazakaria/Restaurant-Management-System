@@ -26,9 +26,9 @@ class prd {
 
 let Data_Menu = [
     // Burgers
-    new prd("Whopper", "/IMG/Whopper.jpg", 84.99, "Burger géant avec viande grillée et sauce spéciale", "Burger"),
-    new prd("BBQ Burger", "/IMG/BBQ_Burger.jpg", 86.00, "Burger sauce BBQ fumée et viande tendre", "Burger"),
-    new prd("Chicken Royale", "/IMG/Chicken_Royale.jpg", 45.99, "Burger poulet croustillant avec sauce mayo", "Burger"),
+    new prd("Whopper", "../IMG/Whopper.jpg", 84.99, "Burger géant avec viande grillée et sauce spéciale", "Burger"),
+    new prd("BBQ Burger", "../IMG/BBQ_Burger.jpg", 86.00, "Burger sauce BBQ fumée et viande tendre", "Burger"),
+    new prd("Chicken Royale", "../IMG/Chicken_Royale.jpg", 45.99, "Burger poulet croustillant avec sauce mayo", "Burger"),
     new prd("Chicken Crispy", "../IMG/Chicken_Crispy.jpg", 29.99, "Burger poulet pané très croustillant", "Burger"),
     new prd("Big King", "../IMG/Big_King.jpg", 29.99, "Double steak avec fromage et sauce spéciale", "Burger"),
     new prd("Cheeseburger", "../IMG/Cheeseburger.jpg", 19.99, "Burger simple avec fromage fondant", "Burger"),
