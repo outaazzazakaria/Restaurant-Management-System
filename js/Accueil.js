@@ -275,12 +275,12 @@ function ouvrirModifier(index) {
 }
 
 
-// ----------------| Page: T.html |--------------------
+// ----------------| Page: .html |--------------------
 
 function rechercherPlat() {
     let mot = document.getElementById("searchInput").value.toLowerCase();
 
-    if (mot === "") {
+    if (mot === "" && mot === "  ") {
         afficherTout();
         return;
     }
@@ -301,7 +301,7 @@ function rechercherPlat() {
 }
 
 
-// ------------------ PUBLICITÉ (setTimeout 10min) ------------------
+// ------------------ PUBLICITÉ (10min) ------------------
 
 setTimeout(() => {
     document.getElementById("modalPub").style.display = "flex";
