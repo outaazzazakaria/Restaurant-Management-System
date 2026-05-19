@@ -46,7 +46,7 @@ body {
     -webkit-text-stroke: 3px rgba(0, 0, 0, 0.749);
 }
 
-/* Main Container */
+/*  */
 .ZKR {
     width: 80%;
     margin: 0 auto;
@@ -83,6 +83,16 @@ body {
 /* Inputs */
 .form-control {
     border-radius: 12px;
+    background-color: transparent;
+    box-shadow: #1a0f0a;
+    border: #bb6a19;
+outline: none;
+
+}
+.form-control:focus {
+background-color: transparent;
+outline: none;
+border: none;
 }
 
 /* Button */

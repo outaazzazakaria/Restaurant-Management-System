@@ -42,7 +42,7 @@ let Data_Menu = [
     new prd("Ice Tea", "../IMG/Ice_Tea.jpg", 14.99, "Thé glacé", "Boisson"),
     new prd("Mojito Fraise", "../IMG/Mojito_Fraise.jpg", 18.00, "Menthe & fraise", "Boisson"),
     new prd("Milkshake Chocolat", "../IMG/Milkshake_Chocolat.jpg", 24.99, "Shake chocolaté", "Boisson"),
-    new prd("Jus d'Orange", "../IMG/Jus_d'Orange.jpg", 16.00, "Orange naturel", "Boisson"),
+    new prd("Jus d'Orange", "../IMG/Jus_dOrange.jpg", 16.00, "Orange naturel", "Boisson"),
     // Desserts
     new prd("Chocolate Cake", "../IMG/Chocolate_Cake.jpg", 22.99, "", "Dessert"),
     new prd("Ice Cream", "../IMG/Ice_Cream.jpg", 15.99, "", "Dessert"),

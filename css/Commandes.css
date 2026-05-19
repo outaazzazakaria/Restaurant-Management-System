@@ -13,18 +13,22 @@ nav {
     border-radius: 5px;
 }
 
-.brand-name {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    margin: 0;
-}
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 4px;
+      color:gainsboro;
+      margin: 0;
+    }
 
-.second-title {
-    font-size: 14px;
-    color: #e7e6de;
-    margin: 0;
-}
+    .second-title {
+      font-size: 14px;
+      font-family: "Poppins", sans-serif;
+      color: #e7e6de;
+      margin: 0;
+    }
+
 
 .nav-btn {
     background: transparent;
@@ -85,13 +89,16 @@ nav {
     background: rgba(255, 71, 87, 0.15);
 }
 
-/* ================== */
+/*-------------------------- */
 .title-Orders {
     font-size: 36px;
     color: #fff;
     margin: 0;
     font-family: Impact, sans-serif;
     letter-spacing: 8px;
+}
+.second-title-orders{
+    font-family: "Poppins", sans-serif;
 }
 
 .btn-add-order {
@@ -370,6 +377,7 @@ td {
     font-weight: 700;
 }
 
+/* status badge */
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -738,7 +746,7 @@ footer a:hover {
     margin-top: 2px;
 }
 
-/* SELECTED ITEMS */
+/* SELECTED ITEMS (ajouter commandes)*/
 .selected-item-row {
     display: flex;
     align-items: center;
@@ -1070,6 +1078,7 @@ footer a:hover {
         transform: translateY(0) scale(1);
     }
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 992px) {

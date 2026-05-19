@@ -1,13 +1,13 @@
-function login() {
-
-    let nom = document.getElementById("inputTEXT").value;
-    let pswd = document.getElementById("inputPSWD").value;
-
     let USERS = [
         { username: "user", password: "1234" },
         { username: "user1", password: "abcd" },
         { username: "user2", password: "efgh" }
     ];
+
+function login() {
+
+    let nom = document.getElementById("inputTEXT").value;
+    let pswd = document.getElementById("inputPSWD").value;
 
     let X = false;
 
@@ -32,7 +32,7 @@ function login() {
         document.getElementById("errorModal").style.display = "block";
 
     }
-
+    
 }
 
 function closeModal() {

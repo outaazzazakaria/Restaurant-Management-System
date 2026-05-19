@@ -14,9 +14,7 @@
 <body class="mx-3 my-1">
    
     <!-- Navbar -->
-
   <nav class="d-flex justify-content-between align-items-center">
-
     <div class="d-flex gap-3 align-items-center">
       <img src="./../IMG/Logo.png" width="65" height="55" alt="Logo">
       <div>
@@ -24,7 +22,6 @@
         <p class="second-title">Système de Gestion Restaurant</p>
       </div>
     </div>
-
     <ul class="d-flex gap-4 list-unstyled m-0">
       <li>
         <a href="./Accueil.html" class="text-decoration-none">
@@ -47,7 +44,6 @@
         </a>
       </li>
     </ul>
-
     <div class="d-flex align-items-center gap-3">
       <button class="btn btn-warning">
         <i class="bi bi-bag-plus"></i>
@@ -58,14 +54,13 @@
         </button>
       </a>
     </div>
-
   </nav>
 
     <!-- header -->
     <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
         <div>
-            <h1 class="title-Orders">Orders</h1>
-            <p>Gérez les commandes de votre restaurant</p>
+            <h1 class="title-Orders">commandes</h1>
+            <p class="second-title-orders">Gérez les commandes de votre restaurant</p>
         </div>
         <button class="btn-add-order" onclick="openAddModal()">
             <i class="bi bi-plus-lg fs-5"></i> Nouvelle Commande
@@ -146,10 +141,10 @@
             <div class="col-md-4">
                 <h5 class="text-warning">Navigation</h5>
                 <ul class="list-unstyled">
-                    <li><a href="./index.html"     class="text-white text-decoration-none">Menu</a></li>
-                    <li><a href="./Commandes.html"    class="text-white text-decoration-none">Orders</a></li>
-                    <li><a href="./Tables.html"    class="text-white text-decoration-none">Tables</a></li>
-                    <li><a href="./Dashboard.html" class="text-white text-decoration-none">Dashboard</a></li>
+                    <li><a href="/html/Accueil.html" class="text-white text-decoration-none">Menu</a></li>
+                    <li><a href="/html/Commandes.html" class="text-white text-decoration-none">Orders</a></li>
+                    <li><a href="/html/Tables.html" class="text-white text-decoration-none">Tables</a></li>
+                    <li><a href="/html/Tableau_de_bord.html" class="text-white text-decoration-none">Dashboard</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -164,7 +159,7 @@
     </footer>
 
 
-    <!-- ══ MODAL: AJOUTER / MODIFIER ══ -->
+    <!--  MODAL: AJOUTER / MODIFIER -->
     <div class="modal-overlay" id="addModal">
         <div class="modal-box wide">
             <div class="modal-header">
@@ -198,7 +193,6 @@
                     </select>
                 </div>
             </div>
-
             <div class="form-group">
                 <label class="form-label-bold">Choisir les plats *</label>
                 <div class="menu-search">
@@ -207,19 +201,15 @@
                 </div>
                 <div class="menu-items-grid" id="menuItemsGrid"></div>
             </div>
-
             <div id="selectedItemsList"></div>
-
             <div class="total-preview">
                 <span class="tp-label">Total de la commande</span>
                 <span class="tp-amount" id="totalPreview">0.00 DH</span>
             </div>
-
             <div class="form-group">
                 <label class="form-label-bold">Notes (optionnel)</label>
                 <textarea class="form-textarea" id="inp-notes" placeholder="Allergies, préférences, instructions..."></textarea>
             </div>
-
             <button class="btn-submit" onclick="saveOrder()">
                 <i class="bi bi-check-lg"></i>
                 <span id="submitBtnText">Créer la commande</span>
@@ -227,8 +217,7 @@
         </div>
     </div>
 
-
-    <!-- ══ MODAL: VOIR ══ -->
+    <!-- MODAL: VOIR -->
     <div class="modal-overlay" id="viewModal">
         <div class="modal-box">
             <div class="modal-header">
@@ -239,8 +228,7 @@
         </div>
     </div>
 
-
-    <!-- ══ MODAL: CONFIRMER SUPPRESSION ══ -->
+    <!-- MODAL: CONFIRMER SUPPRESSION -->
     <div class="modal-overlay" id="confirmModal">
         <div class="confirm-box">
             <div class="confirm-icon"><i class="bi bi-trash3"></i></div>
@@ -253,8 +241,7 @@
         </div>
     </div>
 
-
-    <!-- ══ MODAL: ERREUR ══ -->
+    <!-- MODAL: ERREUR -->
     <div id="errorModal" class="notif-modal">
         <div class="notif-cont bg-warning">
             <i class="bi bi-info-circle fs-2"></i>
@@ -264,7 +251,7 @@
         </div>
     </div>
 
-    <!-- ══ MODAL: SUCCÈS ══ -->
+    <!-- MODAL: SUCCÈS -->
     <div id="successModal" class="notif-modal">
         <div class="notif-cont bg-success">
             <i class="bi bi-check-circle fs-2 text-white"></i>
@@ -273,422 +260,7 @@
                 onclick="closeSuccessModal()">OK</span>
         </div>
     </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-
-        // ─── DATA ─────────────────────────────────────────────────────────────
-
-        class prd {
-            constructor(Nom, URL, prix, description, categorie) {
-                this.Nom = Nom;
-                this.URL = URL;
-                this.prix = prix;
-                this.description = description;
-                this.categorie = categorie;
-            }
-        }
-
-        let Data_Menu = [
-            // Burgers
-            new prd("Whopper",           "../IMG/Whopper.jpg",          84.99, "Burger géant avec viande grillée et sauce spéciale", "Burger"),
-            new prd("BBQ Burger",         "../IMG/BBQ_Burger.jpg",        86.00, "Burger sauce BBQ fumée et viande tendre",            "Burger"),
-            new prd("Chicken Royale",     "../IMG/Chicken_Royale.jpg",    45.99, "Burger poulet croustillant avec sauce mayo",          "Burger"),
-            new prd("Chicken Crispy",     "../IMG/Chicken_Crispy.jpg",    29.99, "Burger poulet pané très croustillant",                "Burger"),
-            new prd("Big King",           "../IMG/Big_King.jpg",          29.99, "Double steak avec fromage et sauce spéciale",         "Burger"),
-            new prd("Cheeseburger",       "../IMG/Cheeseburger.jpg",      19.99, "Burger simple avec fromage fondant",                  "Burger"),
-            new prd("Bacon Burger",       "../IMG/Bacon_Burger.jpg",      34.99, "Burger avec bacon grillé et sauce BBQ",               "Burger"),
-            new prd("Double Cheese",      "../IMG/Double_Cheese.jpg",     39.99, "Double fromage et double steak juteux",               "Burger"),
-            // Boissons
-            new prd("Coca Cola",          "../IMG/Coca_Cola.jpg",         12.00, "Boisson fraîche",   "Boisson"),
-            new prd("Coca Zero",          "../IMG/Coca_Zero.jpg",         13.00, "Sans sucre",        "Boisson"),
-            new prd("Fanta Citron",       "../IMG/Fanta_Citron.jpg",      11.00, "Goût citron",       "Boisson"),
-            new prd("Sprite",             "../IMG/Sprite.jpg",            10.00, "Citron frais",      "Boisson"),
-            new prd("Ice Tea",            "../IMG/Ice_Tea.jpg",           14.99, "Thé glacé",         "Boisson"),
-            new prd("Mojito Fraise",      "../IMG/Mojito_Fraise.jpg",     18.00, "Menthe & fraise",   "Boisson"),
-            new prd("Milkshake Chocolat", "../IMG/Milkshake_Chocolat.jpg",24.99, "Shake chocolaté",   "Boisson"),
-            new prd("Jus d'Orange",       "../IMG/Jus_d'Orange.jpg",      16.00, "Orange naturel",    "Boisson"),
-            // Desserts
-            new prd("Chocolate Cake",     "../IMG/Chocolate_Cake.jpg",    22.99, "", "Dessert"),
-            new prd("Ice Cream",          "../IMG/Ice_Cream.jpg",         15.99, "", "Dessert"),
-            new prd("Donut",              "../IMG/Donut.jpg",             12.99, "", "Dessert"),
-            new prd("Brownie",            "../IMG/Brownie.jpg",           18.99, "", "Dessert"),
-            new prd("Cheesecake",         "../IMG/Cheesecake.jpg",        24.99, "", "Dessert"),
-            new prd("Tiramisu",           "../IMG/Tiramisu.jpg",          26.99, "", "Dessert"),
-            new prd("Pancakes",           "../IMG/Pancakes.jpg",          20.99, "", "Dessert"),
-            new prd("Muffin",             "../IMG/Muffin.jpg",            14.99, "", "Dessert")
-        ];
-
-        let orders = [
-            { id: "CMD-001", items: [{ nom: "Whopper",        prix: 84.99, qty: 1 }, { nom: "Coca Cola",  prix: 12.00, qty: 2 }], table: "Table 3",    statut: "Livré",      notes: "",              date: "2026-05-15 10:22" },
-            { id: "CMD-002", items: [{ nom: "Chicken Crispy", prix: 29.99, qty: 2 }],                                              table: "Table 1",    statut: "En attente", notes: "Sans oignons",  date: "2026-05-15 11:05" },
-            { id: "CMD-003", items: [{ nom: "BBQ Burger",     prix: 86.00, qty: 1 }, { nom: "Tiramisu",   prix: 26.99, qty: 1 }], table: "Table 5",    statut: "En cours",   notes: "",              date: "2026-05-15 11:30" },
-            { id: "CMD-004", items: [{ nom: "Donut",          prix: 12.99, qty: 3 }, { nom: "Ice Tea",    prix: 14.99, qty: 1 }], table: "À emporter", statut: "Annulé",     notes: "",              date: "2026-05-15 09:50" },
-            { id: "CMD-005", items: [{ nom: "Cheeseburger",   prix: 19.99, qty: 2 }, { nom: "Sprite",     prix: 10.00, qty: 2 }], table: "Table 2",    statut: "Livré",      notes: "",              date: "2026-05-15 12:00" },
-        ];
-
-        let currentFilter = "all";
-        let currentPage   = 1;
-        const PAGE_SIZE   = 8;
-        let deleteTarget  = null;
-        let editTarget    = null;
-        let selectedItems = [];
-
-        // ─── UTILS ────────────────────────────────────────────────────────────
-
-        function genId() {
-            return "CMD-" + String(Math.floor(Math.random() * 90000) + 10000);
-        }
-
-        function calcTotal(items) {
-            return items.reduce((s, i) => s + i.prix * i.qty, 0).toFixed(2);
-        }
-
-        function firstItemLabel(order) {
-            if (!order.items.length) return "—";
-            const n = order.items.map(i => i.nom);
-            return n.length > 1 ? n[0] + ` +${n.length - 1}` : n[0];
-        }
-
-        function statusClass(s) {
-            return { "En attente": "s-attente", "En cours": "s-cours", "Livré": "s-livre", "Annulé": "s-annule" }[s] || "";
-        }
-
-        function nowStr() {
-            return new Date().toISOString().slice(0, 16).replace("T", " ");
-        }
-
-        function catEmoji(cat) {
-            return { "Burger": "🍔", "Boisson": "🥤", "Dessert": "🍰" }[cat] || "🍽️";
-        }
-
-        // ─── RENDER TABLE ─────────────────────────────────────────────────────
-
-        function getFiltered() {
-            const q = document.getElementById("searchInput").value.toLowerCase();
-            return orders.filter(o => {
-                const mf = currentFilter === "all" || o.statut === currentFilter;
-                const ms = !q || o.id.toLowerCase().includes(q)
-                              || firstItemLabel(o).toLowerCase().includes(q)
-                              || o.table.toLowerCase().includes(q);
-                return mf && ms;
-            });
-        }
-
-        function renderTable() {
-            const filtered = getFiltered();
-            const tbody    = document.getElementById("ordersTableBody");
-            const empty    = document.getElementById("emptyState");
-            const start    = (currentPage - 1) * PAGE_SIZE;
-            const slice    = filtered.slice(start, start + PAGE_SIZE);
-
-            if (!filtered.length) {
-                tbody.innerHTML = "";
-                empty.style.display = "flex";
-            } else {
-                empty.style.display = "none";
-                tbody.innerHTML = slice.map((o, idx) => {
-                    const menuItem = Data_Menu.find(m => m.Nom === o.items[0]?.nom);
-                    const thumb    = menuItem
-                        ? `<img src="${menuItem.URL}" class="plat-thumb" alt="${menuItem.Nom}" onerror="this.outerHTML='<div class=plat-thumb-ph><i class=bi>🍔</i></div>'">`
-                        : `<div class="plat-thumb-ph"><i class="bi bi-egg-fried"></i></div>`;
-                    return `
-                        <tr>
-                            <td style="color:#888;font-size:12px">${start + idx + 1}</td>
-                            <td><span class="order-id">${o.id}</span></td>
-                            <td>
-                                <div class="plat-cell">
-                                    ${thumb}
-                                    <span class="plat-name">${firstItemLabel(o)}</span>
-                                </div>
-                            </td>
-                            <td style="color:#ccc;font-size:13px">${o.table}</td>
-                            <td class="price-cell">${o.items[0] ? o.items[0].prix.toFixed(2) + " DH" : "—"}</td>
-                            <td class="total-cell">${calcTotal(o.items)} DH</td>
-                            <td><span class="status-badge ${statusClass(o.statut)}">${o.statut}</span></td>
-                            <td>
-                                <div class="actions-cell">
-                                    <button class="btn-action view" onclick="openViewModal('${o.id}')" title="Voir"><i class="bi bi-eye"></i></button>
-                                    <button class="btn-action edit" onclick="openEditModal('${o.id}')" title="Modifier"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn-action del"  onclick="openConfirmModal('${o.id}')" title="Supprimer"><i class="bi bi-trash3"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                    `;
-                }).join("");
-            }
-
-            renderPagination(filtered.length);
-            updateStats();
-        }
-
-        // ─── STATS ────────────────────────────────────────────────────────────
-
-        function updateStats() {
-            document.getElementById("stat-total").textContent   = orders.length;
-            document.getElementById("stat-livre").textContent   = orders.filter(o => o.statut === "Livré").length;
-            document.getElementById("stat-attente").textContent = orders.filter(o => o.statut === "En attente").length;
-            const rev = orders.reduce((s, o) => s + parseFloat(calcTotal(o.items)), 0).toFixed(0);
-            document.getElementById("stat-revenue").textContent = rev;
-        }
-
-        // ─── PAGINATION ───────────────────────────────────────────────────────
-
-        function renderPagination(total) {
-            const pages = Math.ceil(total / PAGE_SIZE) || 1;
-            const info  = document.getElementById("paginationInfo");
-            const btns  = document.getElementById("paginationBtns");
-            const start = (currentPage - 1) * PAGE_SIZE + 1;
-            const end   = Math.min(currentPage * PAGE_SIZE, total);
-            info.textContent = total ? `Affichage ${start}–${end} sur ${total}` : "Aucun résultat";
-            btns.innerHTML   = "";
-            for (let i = 1; i <= pages; i++) {
-                const b = document.createElement("button");
-                b.className   = "btn-page" + (i === currentPage ? " active" : "");
-                b.textContent = i;
-                b.onclick     = () => { currentPage = i; renderTable(); };
-                btns.appendChild(b);
-            }
-        }
-
-        // ─── FILTER ───────────────────────────────────────────────────────────
-
-        function setFilter(el, val) {
-            currentFilter = val;
-            currentPage   = 1;
-            document.querySelectorAll(".btn-filter").forEach(b => b.classList.remove("active-filter"));
-            el.classList.add("active-filter");
-            renderTable();
-        }
-
-        function filterOrders() {
-            currentPage = 1;
-            renderTable();
-        }
-
-        // ─── MENU GRID ────────────────────────────────────────────────────────
-
-        function renderMenuGrid() {
-            const q    = document.getElementById("menuSearchInput").value.toLowerCase();
-            const grid = document.getElementById("menuItemsGrid");
-            const list = Data_Menu.filter(m => !q || m.Nom.toLowerCase().includes(q));
-            grid.innerHTML = list.map(m => {
-                const sel = selectedItems.find(s => s.nom === m.Nom);
-                return `
-                    <div class="menu-item-card ${sel ? "selected" : ""}" onclick="toggleItem('${m.Nom}', ${m.prix}, '${m.categorie}')">
-                        <img src="${m.URL}" alt="${m.Nom}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                        <span class="mi-emoji" style="display:none">${catEmoji(m.categorie)}</span>
-                        <div class="mi-name">${m.Nom}</div>
-                        <div class="mi-price">${m.prix.toFixed(2)} DH</div>
-                    </div>
-                `;
-            }).join("");
-        }
-
-        function toggleItem(nom, prix, cat) {
-            const idx = selectedItems.findIndex(s => s.nom === nom);
-            if (idx === -1) selectedItems.push({ nom, prix, qty: 1 });
-            else selectedItems.splice(idx, 1);
-            renderMenuGrid();
-            renderSelectedItems();
-        }
-
-        function changeQty(nom, delta) {
-            const item = selectedItems.find(s => s.nom === nom);
-            if (!item) return;
-            item.qty = Math.max(1, item.qty + delta);
-            renderSelectedItems();
-        }
-
-        function removeSelected(nom) {
-            selectedItems = selectedItems.filter(s => s.nom !== nom);
-            renderMenuGrid();
-            renderSelectedItems();
-        }
-
-        function renderSelectedItems() {
-            const list = document.getElementById("selectedItemsList");
-            if (!selectedItems.length) {
-                list.innerHTML = "";
-                document.getElementById("totalPreview").textContent = "0.00 DH";
-                return;
-            }
-            list.innerHTML = selectedItems.map(s => `
-                <div class="selected-item-row">
-                    <span class="sel-name">${s.nom}</span>
-                    <span class="sel-price">${s.prix.toFixed(2)} DH</span>
-                    <div class="qty-control">
-                        <button class="qty-btn" onclick="changeQty('${s.nom}', -1)">−</button>
-                        <span class="qty-num">${s.qty}</span>
-                        <button class="qty-btn" onclick="changeQty('${s.nom}', +1)">+</button>
-                    </div>
-                    <button class="sel-remove" onclick="removeSelected('${s.nom}')"><i class="bi bi-x"></i></button>
-                </div>
-            `).join("");
-            const total = selectedItems.reduce((s, i) => s + i.prix * i.qty, 0).toFixed(2);
-            document.getElementById("totalPreview").textContent = total + " DH";
-        }
-
-        // ─── ADD / EDIT MODAL ─────────────────────────────────────────────────
-
-        function openAddModal() {
-            editTarget    = null;
-            selectedItems = [];
-            document.getElementById("addModalTitle").textContent = "Ajouter une Commande";
-            document.getElementById("submitBtnText").textContent = "Créer la commande";
-            document.getElementById("inp-table").value   = "";
-            document.getElementById("inp-status").value  = "En attente";
-            document.getElementById("inp-notes").value   = "";
-            document.getElementById("menuSearchInput").value = "";
-            renderMenuGrid();
-            renderSelectedItems();
-            document.getElementById("addModal").classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeAddModal() {
-            document.getElementById("addModal").classList.remove("open");
-            document.body.style.overflow = "auto";
-        }
-
-        function openEditModal(id) {
-            const order = orders.find(o => o.id === id);
-            if (!order) return;
-            editTarget    = id;
-            selectedItems = order.items.map(i => ({ ...i }));
-            document.getElementById("addModalTitle").textContent = "Modifier la Commande";
-            document.getElementById("submitBtnText").textContent = "Enregistrer";
-            document.getElementById("inp-table").value   = order.table;
-            document.getElementById("inp-status").value  = order.statut;
-            document.getElementById("inp-notes").value   = order.notes;
-            document.getElementById("menuSearchInput").value = "";
-            renderMenuGrid();
-            renderSelectedItems();
-            document.getElementById("addModal").classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-
-        function saveOrder() {
-            const table  = document.getElementById("inp-table").value;
-            const statut = document.getElementById("inp-status").value;
-            const notes  = document.getElementById("inp-notes").value.trim();
-
-            if (!table)              { afficherErreur("Veuillez sélectionner une table."); return; }
-            if (!selectedItems.length){ afficherErreur("Veuillez ajouter au moins un plat."); return; }
-
-            if (editTarget) {
-                const idx   = orders.findIndex(o => o.id === editTarget);
-                orders[idx] = { ...orders[idx], items: selectedItems, table, statut, notes };
-                closeAddModal();
-                afficherSucces("Commande modifiée avec succès !");
-            } else {
-                orders.unshift({ id: genId(), items: selectedItems, table, statut, notes, date: nowStr() });
-                closeAddModal();
-                afficherSucces("Commande créée avec succès !");
-            }
-
-            currentPage = 1;
-            renderTable();
-        }
-
-        // ─── VIEW MODAL ───────────────────────────────────────────────────────
-
-        function openViewModal(id) {
-            const o = orders.find(o => o.id === id);
-            if (!o) return;
-            document.getElementById("viewModalContent").innerHTML = `
-                <div class="view-section">
-                    <div class="view-section-title">Informations générales</div>
-                    <div class="view-row"><span class="view-key">ID</span>    <span class="view-val">${o.id}</span></div>
-                    <div class="view-row"><span class="view-key">Table</span> <span class="view-val">${o.table}</span></div>
-                    <div class="view-row"><span class="view-key">Date</span>  <span class="view-val">${o.date}</span></div>
-                    <div class="view-row"><span class="view-key">Statut</span><span class="view-val"><span class="status-badge ${statusClass(o.statut)}">${o.statut}</span></span></div>
-                    ${o.notes ? `<div class="view-row"><span class="view-key">Notes</span><span class="view-val">${o.notes}</span></div>` : ""}
-                </div>
-                <div class="view-section">
-                    <div class="view-section-title">Plats commandés</div>
-                    ${o.items.map(i => `
-                        <div class="view-row">
-                            <span class="view-key">${i.nom} × ${i.qty}</span>
-                            <span class="view-val">${(i.prix * i.qty).toFixed(2)} DH</span>
-                        </div>
-                    `).join("")}
-                </div>
-                <div class="view-total-row">
-                    <span class="view-total-label">Total</span>
-                    <span class="view-total-val">${calcTotal(o.items)} DH</span>
-                </div>
-            `;
-            document.getElementById("viewModal").classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeViewModal() {
-            document.getElementById("viewModal").classList.remove("open");
-            document.body.style.overflow = "auto";
-        }
-
-        // ─── DELETE ───────────────────────────────────────────────────────────
-
-        function openConfirmModal(id) {
-            deleteTarget = id;
-            document.getElementById("confirmModal").classList.add("open");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeConfirmModal() {
-            deleteTarget = null;
-            document.getElementById("confirmModal").classList.remove("open");
-            document.body.style.overflow = "auto";
-        }
-
-        function confirmDelete() {
-            orders = orders.filter(o => o.id !== deleteTarget);
-            closeConfirmModal();
-            if ((currentPage - 1) * PAGE_SIZE >= getFiltered().length && currentPage > 1) currentPage--;
-            renderTable();
-            afficherSucces("Commande supprimée avec succès !");
-        }
-
-        // ─── NOTIFICATIONS ────────────────────────────────────────────────────
-
-        function afficherErreur(msg) {
-            document.getElementById("info_error").innerText = msg;
-            document.getElementById("errorModal").style.display = "block";
-        }
-
-        function closeErrorModal() {
-            document.getElementById("errorModal").style.display = "none";
-        }
-
-        function afficherSucces(msg) {
-            document.getElementById("info_succes").innerText = msg;
-            document.getElementById("successModal").style.display = "block";
-            setTimeout(() => { document.getElementById("successModal").style.display = "none"; }, 3000);
-        }
-
-        function closeSuccessModal() {
-            document.getElementById("successModal").style.display = "none";
-        }
-
-        // ─── CLOSE ON OVERLAY CLICK ───────────────────────────────────────────
-
-        document.querySelectorAll(".modal-overlay").forEach(ov => {
-            ov.addEventListener("click", e => {
-                if (e.target === ov) {
-                    ov.classList.remove("open");
-                    document.body.style.overflow = "auto";
-                    if (ov.id === "confirmModal") deleteTarget = null;
-                }
-            });
-        });
-
-        // ─── INIT ─────────────────────────────────────────────────────────────
-
-        renderTable();
-
-    </script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

@@ -1,268 +1,179 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZACKRISTOS-Tableau de bord</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<link rel="stylesheet" href="../css/Tableau_de_bord.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZACKRISTOS-Tableau de bord</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/Tableau_de_bord.css">
 </head>
 
 <body class="mx-3 my-1">
 
-  <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="d-flex justify-content-between align-items-center">
 
-  <nav class="d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-3 align-items-center">
+            <img src="./../IMG/Logo.png" width="65" height="55" alt="Logo">
+            <div>
+                <h3 class="brand-name">ZACKRISTOS</h3>
+                <p class="second-title">Système de Gestion Restaurant</p>
+            </div>
+        </div>
+        <ul class="d-flex gap-4 list-unstyled m-0">
+            <li>
+                <a href="./Accueil.html" class="text-decoration-none">
+                    <button class="nav-btn"><i class="bi bi-menu-button-wide"></i> Menu</button>
+                </a>
+            </li>
+            <li>
+                <a href="./Commandes.html" class="text-decoration-none">
+                    <button class="nav-btn"><i class="bi bi-ticket-perforated"></i>Commandes</button>
+                </a>
+            </li>
+            <li>
+                <a href="./Tables.html" class="text-decoration-none">
+                    <button class="nav-btn "><i class="bi bi-table"></i>Gestion des tables</button>
+                </a>
+            </li>
+            <li>
+                <a href="./Tableau_de_bord.html" class="text-decoration-none">
+                    <button class="nav-btn active_btn_Tableau_de_bord"><i class="bi bi-calendar2-week"></i>Tableau de
+                        bord</button>
+                </a>
+            </li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-warning">
+                <i class="bi bi-bag-plus"></i>
+            </button>
+            <a href="./login.html">
+                <button class="btn btn-danger">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </a>
+        </div>
+    </nav>
+    <nav class="d-flex justify-content-between align-items-center mt-5">
 
-    <div class="d-flex gap-3 align-items-center">
-      <img src="./../IMG/Logo.png" width="65" height="55" alt="Logo">
-      <div>
-        <h3 class="brand-name">ZACKRISTOS</h3>
-        <p class="second-title">Système de Gestion Restaurant</p>
-      </div>
-    </div>
-
-    <ul class="d-flex gap-4 list-unstyled m-0">
-      <li>
-        <a href="./Accueil.html" class="text-decoration-none">
-          <button class="nav-btn"><i class="bi bi-menu-button-wide"></i> Menu</button>
-        </a>
-      </li>
-      <li>
-        <a href="./Commandes.html" class="text-decoration-none">
-          <button class="nav-btn"><i class="bi bi-ticket-perforated"></i>Commandes</button>
-        </a>
-      </li>
-      <li>
-        <a href="./Tables.html" class="text-decoration-none">
-          <button class="nav-btn "><i class="bi bi-table"></i>Gestion des tables</button>
-        </a>
-      </li>
-      <li>
-        <a href="./Tableau_de_bord.html" class="text-decoration-none">
-          <button class="nav-btn active_btn_Tableau_de_bord"><i class="bi bi-calendar2-week"></i>Tableau de bord</button>
-        </a>
-      </li>
-    </ul>
-
-    <div class="d-flex align-items-center gap-3">
-      <button class="btn btn-warning">
-        <i class="bi bi-bag-plus"></i>
-      </button>
-      <a href="./login.html">
-        <button class="btn btn-danger">
-            <i class="bi bi-box-arrow-right"></i>
-        </button>
-      </a>
-    </div>
-
-  </nav>
-
-
-<nav class="d-flex justify-content-between align-items-center mt-5">
-
-    <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
 
 
-    <div>
+        <div>
 
-        <button class="btn btn-warning" onclick="exportCSV()">
-            <i class="bi bi-download"></i>
-            Export
-        </button>
+            <button class="btn btn-warning" onclick="exportCSV()">
+                <i class="bi bi-download"></i>
+                Export
+            </button>
 
-
-    </div>
-
-</nav>
-
-
-
-<!-- TITLE -->
-
-<div class="mt-4 mb-4 d-flex justify-content-between">
-
-
-    <h4 id="date"></h4>
-
-</div>
-
-
-
-<!-- KPI CARDS -->
-
-<div class="row">
-
-    <div class="col-md-3 mb-3">
-
-        <div class="card-box">
-
-            <i class="bi bi-cart-check"></i>
-
-            <h2 id="orders">0</h2>
-
-            <p>Total Orders</p>
 
         </div>
 
+    </nav>
+
+    <!-- TITLE -->
+    <div class="mt-4 mb-4 d-flex justify-content-between">
+        <h4 id="date"></h4>
     </div>
 
-    <div class="col-md-3 mb-3">
-
-        <div class="card-box">
-
-            <i class="bi bi-cash-stack"></i>
-
-            <h2 id="revenue">0 Dh</h2>
-
-            <p>Total Revenue</p>
-
+    <!-- CARDS DASH -->
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <div class="card-box">
+                <i class="bi bi-cart-check"></i>
+                <h2 id="orders">0</h2>
+                <p>Total Orders</p>
+            </div>
         </div>
-
-    </div>
-
-    <div class="col-md-3 mb-3">
-
-        <div class="card-box">
-
-            <i class="bi bi-table"></i>
-
-            <h2 id="tables">0</h2>
-
-            <p>Tables</p>
-
+        <div class="col-md-3 mb-3">
+            <div class="card-box">
+                <i class="bi bi-cash-stack"></i>
+                <h2 id="revenue">0 Dh</h2>
+                <p>Total Revenue</p>
+            </div>
         </div>
-
-    </div>
-
-    <div class="col-md-3 mb-3">
-
-        <div class="card-box">
-
-            <i class="bi bi-clock-history"></i>
-
-            <h2 id="pending">0</h2>
-
-            <p>Ordres en attente</p>
-
+        <div class="col-md-3 mb-3">
+            <div class="card-box">
+                <i class="bi bi-table"></i>
+                <h2 id="tables">0</h2>
+                <p>Tables</p>
+            </div>
         </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- CHARTS -->
-
-<div class="row">
-
-    <div class="col-md-8">
-
-        <div class="chart-box">
-
-            <h3 class="text-warning mb-3">
-                Revenue Chart
-            </h3>
-
-            <canvas id="barChart"></canvas>
-
+        <div class="col-md-3 mb-3">
+            <div class="card-box">
+                <i class="bi bi-clock-history"></i>
+                <h2 id="pending">0</h2>
+                <p>Ordres en attente</p>
+            </div>
         </div>
-
     </div>
 
-    <div class="col-md-4">
-
-        <div class="chart-box">
-
-            <h3 class="text-warning mb-3">
-                Categories
-            </h3>
-
-            <canvas id="pieChart"></canvas>
-
+    <!-- CHARTS -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="chart-box">
+                <h3 class="text-warning mb-3">
+                    Revenue Chart
+                </h3>
+                <canvas id="barChart"></canvas>
+            </div>
         </div>
-
+        <div class="col-md-4">
+            <div class="chart-box">
+                <h3 class="text-warning mb-3">
+                    Categories
+                </h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
     </div>
 
-</div>
-
-
-
-<!-- PRODUCTS TABLE -->
-
-<div class="chart-box">
-
-    <h3 class="text-warning mb-3">
-        Top Products
-    </h3>
-
-    <table>
-
-        <thead>
-
-            <tr>
-
-                <th>#</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Sales</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody id="tableBody">
-
-        </tbody>
-
-    </table>
-
-</div>
-
-
-
-<!-- RECENT ORDERS -->
-
-<div class="chart-box">
-
-    <h3 class="text-warning mb-3">
-        Recent Orders
-    </h3>
-
-    <div id="recentOrders">
-
+    <!-- PRODUCTS TABLE -->
+    <div class="chart-box">
+        <h3 class="text-warning mb-3">
+            Top Products
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
     </div>
 
-</div>
-
-
-
-<!-- CATEGORY BARS -->
-
-<div class="chart-box">
-
-    <h3 class="text-warning mb-3">
-        Categories Progress
-    </h3>
-
-    <div id="bars">
-
+    <!-- RECENT ORDERS -->
+    <div class="chart-box">
+        <h3 class="text-warning mb-3">
+            Recent Orders
+        </h3>
+        <div id="recentOrders">
+        </div>
     </div>
 
-</div>
+    <!-- CATEGORY BARS -->
+    <div class="chart-box">
+        <h3 class="text-warning mb-3">
+            Categories Progress
+        </h3>
+        <div id="bars">
+        </div>
+    </div>
 
-
-
-<!-- ALERT -->
-
-<div class="alert-box" id="alertBox">
-
-    CSV Downloaded Successfully
-
-</div>
-
+    <!-- ALERT -->
+    <div class="alert-box" id="alertBox">
+        CSV Downloaded Successfully
+    </div>
 
     <!-- footer -->
     <footer class="text-white w-100 p-4 mt-5">
@@ -274,10 +185,10 @@
             <div class="col-md-4">
                 <h5 class="text-warning">Navigation</h5>
                 <ul class="list-unstyled">
-                    <li><a href="./index.html" class="text-white text-decoration-none">Menu</a></li>
-                    <li><a href="./Orders.html" class="text-white text-decoration-none">Orders</a></li>
-                    <li><a href="./Tables.html" class="text-white text-decoration-none">Tables</a></li>
-                    <li><a href="./Dashboard.html" class="text-white text-decoration-none">Dashboard</a></li>
+                    <li><a href="/html/Accueil.html" class="text-white text-decoration-none">Menu</a></li>
+                    <li><a href="/html/Commandes.html" class="text-white text-decoration-none">Orders</a></li>
+                    <li><a href="/html/Tables.html" class="text-white text-decoration-none">Tables</a></li>
+                    <li><a href="/html/Tableau_de_bord.html" class="text-white text-decoration-none">Dashboard</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -293,217 +204,8 @@
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-
-// ==========================
-// DATE
-// ==========================
-
-let today = new Date();
-
-document.getElementById("date").innerHTML =
-today.toLocaleDateString();
-
-
-
-// ==========================
-// KPI VALUES
-// ==========================
-
-document.getElementById("orders").innerHTML = 120;
-
-document.getElementById("revenue").innerHTML = "5400 Dh";
-
-document.getElementById("tables").innerHTML = 18;
-
-document.getElementById("pending").innerHTML = 7;
-
-
-
-// ==========================
-// BAR CHART
-// ==========================
-
-new Chart(document.getElementById("barChart"), {
-
-    type: "bar",
-
-    data: {
-
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-
-        datasets: [{
-
-            label: "Revenue",
-
-            data: [500, 800, 600, 1200, 900],
-
-            backgroundColor: "gold"
-
-        }]
-    }
-
-});
-
-
-
-// ==========================
-// PIE CHART
-// ==========================
-
-new Chart(document.getElementById("pieChart"), {
-
-    type: "pie",
-
-    data: {
-
-        labels: ["Burger", "Drinks", "Dessert"],
-
-        datasets: [{
-
-            data: [50, 30, 20],
-
-            backgroundColor: [
-
-                "orange",
-                "skyblue",
-                "violet"
-
-            ]
-
-        }]
-    }
-
-});
-
-
-
-// ==========================
-// PRODUCTS TABLE
-// ==========================
-
-let products = [
-
-    ["Whopper", 85, 120],
-
-    ["Coca Cola", 12, 90],
-
-    ["Donut", 15, 70],
-
-    ["Chicken Burger", 45, 55],
-
-    ["Ice Cream", 20, 40]
-
-];
-
-let table = document.getElementById("tableBody");
-
-products.forEach((p, index) => {
-
-    table.innerHTML += `
-
-        <tr>
-
-            <td>${index + 1}</td>
-
-            <td>${p[0]}</td>
-
-            <td>${p[1]} Dh</td>
-
-            <td>${p[2]}</td>
-
-        </tr>
-
-    `;
-
-});
-
-
-
-// ==========================
-// RECENT ORDERS
-// ==========================
-
-let orders = document.getElementById("recentOrders");
-
-for(let i = 1; i <= 5; i++){
-
-    orders.innerHTML += `
-
-        <div class="order">
-
-            <strong>Order #10${i}</strong>
-            <br>
-            Burger Menu - 120 Dh
-
-        </div>
-
-    `;
-}
-
-
-
-// ==========================
-// CATEGORY BARS
-// ==========================
-
-let categories = [
-
-    ["Burger", 80],
-
-    ["Drinks", 60],
-
-    ["Dessert", 40]
-
-];
-
-let bars = document.getElementById("bars");
-
-categories.forEach(cat => {
-
-    bars.innerHTML += `
-
-        <p>${cat[0]}</p>
-
-        <div class="bar">
-
-            <div class="fill"
-                 style="width:${cat[1]}%">
-
-                 ${cat[1]}%
-
-            </div>
-
-        </div>
-
-    `;
-
-});
-
-
-
-// ==========================
-// EXPORT BUTTON
-// ==========================
-
-function exportCSV(){
-
-    let alertBox = document.getElementById("alertBox");
-
-    alertBox.style.display = "block";
-
-    setTimeout(() => {
-
-        alertBox.style.display = "none";
-
-    }, 3000);
-
-}
-
-
-
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/app.js"></script>
 </body>
+
 </html>

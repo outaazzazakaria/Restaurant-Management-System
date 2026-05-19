@@ -13,18 +13,22 @@ nav {
     border-radius: 5px;
 }
 
-.brand-name {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gold);
-    margin: 0;
-}
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 4px;
+      color:gainsboro;
+      margin: 0;
+    }
 
-.second-title {
-    font-size: 14px;
-    color: #e7e6de;
-    margin: 0;
-}
+    .second-title {
+      font-size: 14px;
+      font-family: "Poppins", sans-serif;
+      color: #e7e6de;
+      margin: 0;
+    }
+
 
 .nav-btn {
     background: transparent;
@@ -86,7 +90,7 @@ nav {
 }
 
 
-/*================== */
+/* title(Notre Menu) */
 .title-Notr_Mnu {
     font-size: 36px;
     color: #fff;
@@ -237,7 +241,7 @@ nav {
         transform: translateX(-850px);
     }
 }
-/* ---------====| les titers des cartes */
+/*  les titers des cartes */
     .title_des_cartes_burger , .title_des_cartes_Boissons , .title_des_cartes_Desserts{
       font-size: 22px;
       font-weight: 700;
@@ -268,7 +272,7 @@ nav {
         border: none !important;
     }
 
-/* ----------=======| les cartes |=====---------- */
+/* les cartes */
 .card {
     background: #1a0f0a;
     border-radius: 10px;
@@ -353,7 +357,7 @@ footer a:hover {
     transition: 0.3s;
 }
 
-/* MODAL */
+/* MODALS */
 .modal-box {
     position: fixed;
     top: 0;
@@ -593,6 +597,7 @@ footer a:hover {
     border-radius: 20px;
     letter-spacing: 1px;
 }
+
 /* scrollbar */
 ::-webkit-scrollbar {
     width: 5px;
@@ -652,7 +657,6 @@ footer a:hover {
         margin: 0;
         padding: 8px;
     }
-
     .modal-content {
         padding: 15px;
     }
