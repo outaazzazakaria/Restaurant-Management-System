@@ -528,21 +528,23 @@ footer a:hover {
 }
 
 .pub-content {
-    /* background: #1a0f0a;
+    background: #1a0f0a;
     border: 3px solid #FFBA00;
     border-radius: 20px;
+
     width: 420px;
     max-width: 92%;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 40px rgba(255, 186, 0, 0.4); */
-    animation: modalUp 0.4s ease;
-        background:white;
-    padding:20px;
-    width:300px;
-    z-index:9999;
-}
 
+    min-height: 500px;
+
+    overflow: visible;
+
+    position: relative;
+
+    box-shadow: 0 0 40px rgba(255, 186, 0, 0.4);
+
+    animation: modalUp 0.4s ease;
+}
 .pub-close {
     position: absolute;
     top: 12px;
@@ -571,7 +573,9 @@ footer a:hover {
     width: 100%;
     height: 390px;
     object-fit: cover;
+    display: block;
 }
+
 
 .pub-text {
     padding: 20px;
