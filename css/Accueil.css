@@ -198,7 +198,15 @@ nav {
     width: fit-content;
     animation: scroll 20s linear infinite;
 }
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
 
+    to {
+        transform: translateX(-850px);
+    }
+}
 .slide-track:hover {
     animation-play-state: paused;
 }
@@ -232,15 +240,7 @@ nav {
     transform: translateX(-50%);
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
 
-    to {
-        transform: translateX(-850px);
-    }
-}
 /*  les titers des cartes */
     .title_des_cartes_burger , .title_des_cartes_Boissons , .title_des_cartes_Desserts{
       font-size: 22px;
@@ -452,30 +452,6 @@ footer a:hover {
     border: #ffffff solid 2px;
 }
 
-@keyframes modalUp {
-    from {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Modal Error & Succès */
 .modal {
     display: none;
@@ -526,6 +502,17 @@ footer a:hover {
     align-items: center;
     animation: fadeIn 0.4s ease;
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .pub-content {
     background: #1a0f0a;
@@ -544,6 +531,17 @@ footer a:hover {
     box-shadow: 0 0 40px rgba(255, 186, 0, 0.4);
 
     animation: modalUp 0.4s ease;
+}
+@keyframes modalUp {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 .pub-close {
     position: absolute;
