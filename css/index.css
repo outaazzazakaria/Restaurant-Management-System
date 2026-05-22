@@ -81,20 +81,18 @@ body {
     color: black;
 }
 /* Inputs */
-.form-control {
+#inputTEXT, #inputPSWD {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    box-shadow: 1px 2px 20px #000000cf;
+    padding: 12px 15px;
     border-radius: 12px;
-    background-color: transparent;
-    box-shadow: #1a0f0a;
-    border: #bb6a19;
-outline: none;
 
 }
-.form-control:focus {
-background-color: transparent;
-outline: none;
-border: none;
-}
-
 /* Button */
 .btn-login {
     width: 100%;
